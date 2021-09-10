@@ -10,6 +10,7 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+          git fetch --all
 
           newBranchName=$(echo ${{github.head_ref}} | sed 's/\//_/g');
           git checkout $newBranchName
