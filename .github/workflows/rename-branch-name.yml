@@ -1,0 +1,14 @@
+name: "Rename branch name"
+on: pull_request_target
+
+jobs:
+  update-branch:
+    name: Update dev branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git fetch --all
+          git branch --show-current
